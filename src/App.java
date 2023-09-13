@@ -160,7 +160,7 @@ public class App {
         String opcion = "";
         do {
             opcion = entradaPersonalizada(
-                    "Bienvenido\n1.- Agregar cancion nueva.\n2.- Editar cancion.\n3.- Eliminar una cancion.\n4.- Ver canciones.\n5.- Eliminar todas las canciones\n6.- Salir.\nSelecciona una opcion");
+                    "Bienvenido al simulador de play-list\n1.- Agregar cancion nueva.\n2.- Editar cancion.\n3.- Eliminar una cancion.\n4.- Ver canciones.\n5.- Eliminar todas las canciones\n6.- Salir.");
 
             // salir si se ingresa 6
             if (opcion.equals("6"))
@@ -179,21 +179,26 @@ public class App {
 
     private static String entradaPersonalizada(String txt) {
         JTextField textField = new JTextField();
-        Object[] mensaje = {
+        Object[] message = {
                 txt, textField
         };
 
-        JOptionPane.showOptionDialog(
+        int opcion = JOptionPane.showOptionDialog(
                 null,
-                mensaje,
-                "Entrada",
-                JOptionPane.DEFAULT_OPTION,
+                message,
+                "Entrada Personalizada",
+                JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 null,
                 null);
 
-        return textField.getText();
+        if (opcion == 0) {
+            return textField.getText();
+        }
+
+        menu();
+        return null; // Si el usuario presiona Cancelar
     }
 
 }
