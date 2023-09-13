@@ -159,7 +159,7 @@ public class App {
     private static String capturarOpcion() {
         String opcion = "";
         do {
-            opcion = entradaPersonalizada(
+            opcion = JOptionPane.showInputDialog(
                     "Bienvenido al simulador de play-list\n1.- Agregar cancion nueva.\n2.- Editar cancion.\n3.- Eliminar una cancion.\n4.- Ver canciones.\n5.- Eliminar todas las canciones\n6.- Salir.");
 
             // salir si se ingresa 6
